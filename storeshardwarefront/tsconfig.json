@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    //куда производится сборка (не важна так как собираем с Webpack)
+    "outDir": "./build/",
+
+    //не позволяет использовать переменные без явной типизации
+    "noImplicitAny": true,
+
+    "module": "ESNext",
+
+    //в какую версию будем компилировать
+    "target": "es5",
+
+    //Для использования React конструкций
+    "jsx": "react-jsx",
+
+    //позволяет обрабатывать компилятору  не только .ts но и .js
+    "allowJs": true,
+    "moduleResolution": "node",
+
+    //Позволяет работать с пакетами, которые использует
+    //common.js работать с пакетами с помощью import  (require() module export)= common.js
+    "esModuleInterop": true,
+
+    //Позволяет использовать обычные Import без * as  для
+    // пакетов не поддерживающих стандарный импорт
+    "allowSyntheticDefaultImports": true,
+
+    //ДЛя абсолютного импорта
+    "baseUrl": ".",
+    "paths": {
+      "*": [ "./src/*" ]
+    }
+  },
+  //Если используем webpack или другой инструмент сборки,
+  //установите переопределение для ts-node. конфигурация ts-node
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }  
+}

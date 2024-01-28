@@ -1,0 +1,25 @@
+:root {
+    --font-family-main: consolas, "Times New Roman", serif; // Тип шрифта
+    --font-size-m: 16px; // переменная со стандартным шрифтом
+    --font-line-m: 24px; // Высота линии шрифта
+    // Обьедененная переменная  для стандартного шрифта
+    --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
+    --font-size-l: 24px; // Для заголовков
+    --font-line-l: 32px;
+    --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+    --font-size-xl: 32px; // Для заголовков
+    --font-line-xl: 40px;
+    --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
+    // Размеры
+    --navbar-height: 50px;
+    // развернутое и свернутое состояние сайдбара
+    --sidebar-width: 300px;
+    --sidebar-width-collapsed: 80px;
+    // z - Индексы
+    --modal-z-index: 10;
+    
+    --bg-color: #e8e8ea;
+    --primary-color: #0232c2; // Цвет Заголовков ссылок и тд
+    --secondary-color: #0449e0; // Цвет обычного текста
+   
+}
