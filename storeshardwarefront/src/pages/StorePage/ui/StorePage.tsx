@@ -1,12 +1,18 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, {  useCallback, useEffect, useState } from 'react';
 import { Table } from 'shared/ui/Table/Table';
 import { fetchShops, fetchShopById } from 'Clients/function/ShopClient';
+import { ShopForm } from 'widgets/Forms/ui/ShopForm'
+import { Modal } from '../../../shared/ui/Modal/Modal';
+
 
 
 export const StorePage = () => {
-    const shopId = 1;
+    const shopID = 1;
+
     const [shopState, setShopState] = useState([]);
-    const [ shopStateById, setShopStateById ] = useState([]);
+    const [shopStateById, setShopStateById] = useState([]);
+
+   
     
     useEffect(() => {
         fetchShops().then(res => {
@@ -17,7 +23,7 @@ export const StorePage = () => {
     }, [setShopState])   
     /*
     useEffect(() => {
-        fetchShopById(shopId).then(res => {
+        fetchShopById(shopID).then(res => {
             console.log(res.data.result);
             setShopStateById(res.data.result);
             
@@ -42,18 +48,23 @@ export const StorePage = () => {
         { heading: 'Name', value: 'name' },
         { heading: 'Phone', value: 'phone' },
         { heading: 'Adress', value: 'adress' }        
-    ]
+    ]    
+
+    
+    
 
 
     return (
         <div>
-            <h1>Shop Page</h1>            
+            <h1>Shop Page</h1>
+            <ShopForm></ShopForm>
             <Table
                 data={shopState}
                 column={ column }
                 onEditClick={ onEditStore }
                 onDeleteClick= { onDeleteStore }
-            />           
+            />       
+            
                        
         </div>
     );

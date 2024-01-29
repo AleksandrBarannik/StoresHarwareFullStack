@@ -11,6 +11,7 @@
   <ItemGroup>
     <Folder Include="public\" />
     <Folder Include="src\app\providers\Router\ui\" />
+    <Folder Include="src\app\hooks\" />
     <Folder Include="src\shared\config\RouteConfig\" />
     <Folder Include="src\shared\lib\classNames\" />
     <Folder Include="src\widgets\PageLoader\ui\" />

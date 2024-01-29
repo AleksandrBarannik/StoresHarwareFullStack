@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { Table } from 'shared/ui/Table/Table';
-import { Button } from 'shared/ui/Button/Button';
+
 
 export const MainPage = () => {
 
@@ -34,8 +34,7 @@ export const MainPage = () => {
 
     return (
         <div>
-            <h1>Main page</h1>
-            <Button>GetData</Button>
+            <h1>Main page</h1>            
             <div>
                 <Table
                     data={dataTable}

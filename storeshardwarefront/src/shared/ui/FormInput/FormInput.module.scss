@@ -1,0 +1,37 @@
+.inputWrapper {
+    margin-top: 20px;
+}
+
+label {
+    color: #344052;
+    font-size: 18px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+    
+}
+
+input {
+    font-size: 16px;
+    font-weight: 400;
+    width: 250px;
+    color: #344054;
+    background: #ffffff;
+    border: 1px solid #d0d5dd;
+    border-radius: 8px;
+    padding: 10px 14px;
+}
+
+input::placeholder {
+    font-size: 16px;
+    font-weight: 400;
+    color: #667085;
+}
+
+.error {
+    color: #db4437;
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: 12px;
+    margin-top: 4px;
+}
