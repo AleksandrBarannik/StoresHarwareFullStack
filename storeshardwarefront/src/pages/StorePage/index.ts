@@ -1,3 +1,3 @@
 export {
-    StorePage,
-} from './ui/StorePage';
+    ShopPage,
+} from './ui/ShopPage';

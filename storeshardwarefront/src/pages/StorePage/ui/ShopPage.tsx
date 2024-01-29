@@ -2,11 +2,10 @@ import React, {  useCallback, useEffect, useState } from 'react';
 import { Table } from 'shared/ui/Table/Table';
 import { fetchShops, fetchShopById } from 'Clients/function/ShopClient';
 import { ShopForm } from 'widgets/Forms/ui/ShopForm'
-import { Modal } from '../../../shared/ui/Modal/Modal';
 
 
 
-export const StorePage = () => {
+export const ShopPage = () => {
     const shopID = 1;
 
     const [shopState, setShopState] = useState([]);
@@ -21,6 +20,7 @@ export const StorePage = () => {
         });
 
     }, [setShopState])   
+
     /*
     useEffect(() => {
         fetchShopById(shopID).then(res => {
@@ -35,7 +35,7 @@ export const StorePage = () => {
 
 
     const onEditStore = useCallback(() => {
-        console.log('Button Edit StorePage Click')
+        <ShopForm></ShopForm>
     }, []);
 
     const onDeleteStore = useCallback(() => {
@@ -56,7 +56,7 @@ export const StorePage = () => {
 
     return (
         <div>
-            <h1>Shop Page</h1>
+            <h1>List of Shops</h1>
             <ShopForm></ShopForm>
             <Table
                 data={shopState}

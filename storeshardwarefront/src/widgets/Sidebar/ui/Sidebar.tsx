@@ -62,10 +62,9 @@ export const Sidebar = ({ className }: SidebarProps) => {
                         Products
                     </span>
                 </AppLink>
-
                 <AppLink
                     theme={AppLinkTheme.SECONDARY}
-                    to={RoutePath.store}
+                    to={RoutePath.shop}
                     className={cls.item}
                 >
                     <StoreIcon className={cls.icon} />
@@ -73,6 +72,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
                         Stores
                     </span>
                 </AppLink>
+                
 
             </div>          
 
