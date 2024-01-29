@@ -23,7 +23,7 @@ export const ShopPage = () => {
 
     }, [setShopState])   
 
-    /*
+    
     useEffect(() => {
         fetchShopById(shopID).then(res => {
             console.log(res.data.result);
@@ -32,7 +32,7 @@ export const ShopPage = () => {
         });
 
     }, [setShopStateById]) 
-    */
+    
 
 
 
@@ -55,7 +55,7 @@ export const ShopPage = () => {
         { heading: 'Name', value: 'name' },
         { heading: 'Phone', value: 'phone' },
         { heading: 'Adress', value: 'adress' }        
-    ]    
+    ]  
 
     
     
@@ -67,13 +67,6 @@ export const ShopPage = () => {
             <Button onClick={onToggleModal}>
                 Create
             </Button>
-            
-            <Table
-                data={shopState}
-                column={ column }
-                onEditClick={onToggleModal }
-                onDeleteClick= { onDeleteStore }
-            />   
 
             <Modal
                 isOpen={modalData}
@@ -81,6 +74,13 @@ export const ShopPage = () => {
             >
                 <ShopForm />
             </Modal>
+            
+            <Table
+                data={shopState}
+                column={ column }
+                onEditClick={onToggleModal }
+                onDeleteClick= { onDeleteStore }
+            />         
             
                        
         </div>

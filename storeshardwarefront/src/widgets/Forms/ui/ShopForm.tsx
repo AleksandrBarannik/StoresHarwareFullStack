@@ -1,7 +1,6 @@
-import { FormEvent, useCallback, useState } from "react";
+import { FormEvent } from "react";
 import useInput from "app/hooks/useInput";
 import { FormInput } from "shared/ui/FormInput/FormInput";
-import { Modal } from "shared/ui/Modal/Modal";
 import { Button } from "shared/ui/Button/Button";
 
 export interface inputType
@@ -9,13 +8,21 @@ export interface inputType
     value: string;
     setError: (value:boolean) => void;
 }
-export const ShopForm = () => {
+interface FormProps {
+    className?: string;
+    onSendClick?: () => void;
+    onGetClick?: () => void;
+    
 
+}
 
-   /* const [modalData, setModalWindow] = useState(false);
-    const onToggleModal = useCallback(() => {
-        setModalWindow((prev) => !prev);
-    }, []);*/
+export const ShopForm = (props:FormProps) => {
+
+    const {
+        className,
+        onSendClick,
+        onGetClick
+    } = props
 
     const shopInput = useInput('');
     const nameInput = useInput('');
@@ -77,8 +84,9 @@ export const ShopForm = () => {
                         placeholder='Enter new adress for  shop'
                         {...adressInput}
 
-                    />
-
+                />
+                <Button onClick={onSendClick}> SendForm</Button>
+                <Button onClick={onGetClick}> GetDataByID</Button>
 
                 </form>          
             
