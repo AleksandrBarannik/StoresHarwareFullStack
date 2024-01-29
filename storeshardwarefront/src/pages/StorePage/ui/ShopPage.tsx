@@ -2,6 +2,8 @@ import React, {  useCallback, useEffect, useState } from 'react';
 import { Table } from 'shared/ui/Table/Table';
 import { fetchShops, fetchShopById } from 'Clients/function/ShopClient';
 import { ShopForm } from 'widgets/Forms/ui/ShopForm'
+import { Button } from '../../../shared/ui/Button/Button';
+import { Modal } from '../../../shared/ui/Modal/Modal';
 
 
 
@@ -34,8 +36,13 @@ export const ShopPage = () => {
 
 
 
+    const [modalData, setModalWindow] = useState(false);
+    const onToggleModal = useCallback(() => {
+        setModalWindow((prev) => !prev);
+    }, []);
+
     const onEditStore = useCallback(() => {
-        <ShopForm></ShopForm>
+        setModalWindow((prev) => !prev);
     }, []);
 
     const onDeleteStore = useCallback(() => {
@@ -57,13 +64,23 @@ export const ShopPage = () => {
     return (
         <div>
             <h1>List of Shops</h1>
-            <ShopForm></ShopForm>
+            <Button onClick={onToggleModal}>
+                Create
+            </Button>
+            
             <Table
                 data={shopState}
                 column={ column }
-                onEditClick={ onEditStore }
+                onEditClick={onToggleModal }
                 onDeleteClick= { onDeleteStore }
-            />       
+            />   
+
+            <Modal
+                isOpen={modalData}
+                onClose={onToggleModal}
+            >
+                <ShopForm />
+            </Modal>
             
                        
         </div>

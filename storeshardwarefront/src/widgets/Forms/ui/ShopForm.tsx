@@ -12,10 +12,10 @@ export interface inputType
 export const ShopForm = () => {
 
 
-    const [modalData, setModalWindow] = useState(false);
+   /* const [modalData, setModalWindow] = useState(false);
     const onToggleModal = useCallback(() => {
         setModalWindow((prev) => !prev);
-    }, []);
+    }, []);*/
 
     const shopInput = useInput('');
     const nameInput = useInput('');
@@ -41,13 +41,8 @@ export const ShopForm = () => {
 
     return (
         <div>
-            <Button onClick={onToggleModal}>
-                Create Shop
-            </Button>
-            <Modal
-                isOpen={modalData}
-                onClose={onToggleModal}
-            >
+            
+           
                 <form onSubmit={handleSubmit}>
                     <FormInput
                         type='number'
@@ -85,8 +80,7 @@ export const ShopForm = () => {
                     />
 
 
-                </form>
-            </Modal>
+                </form>          
             
 
                     
