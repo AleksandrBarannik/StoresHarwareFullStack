@@ -16,7 +16,14 @@ builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 builder.Services.AddResponseCaching();
 builder.Services.AddAutoMapper(typeof(MappingConfig));
-builder.Services.AddCors();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name:"AllowAll",
+                      builder =>
+                      {
+                          builder.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
+                      });
+});
 
 
 builder.Services.AddEndpointsApiExplorer();
@@ -49,11 +56,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+// Политика безовасности
+app.UseCors("AllowAll");
+
 app.UseAuthorization();
 
 app.MapControllers();
-
-// Политика безовасности
-app.UseCors(builder => builder.AllowAnyOrigin());
 
 app.Run();

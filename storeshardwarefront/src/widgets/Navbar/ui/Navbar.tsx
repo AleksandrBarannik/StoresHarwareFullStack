@@ -30,8 +30,6 @@ export function Navbar({ className } : NavbarProps) {
                 onClose={onToggleModal}
 
             >
-                {/* eslint-disable-next-line i18next/no-literal-string */}
-                {/* eslint-disable-next-line i18next/no-literal-string */}
                 MODAL FORM TESTING
             </Modal>
 

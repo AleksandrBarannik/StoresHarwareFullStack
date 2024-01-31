@@ -40,7 +40,11 @@ export const FormInput: FC<InputProps> = (props) => {
                 disabled={disabled}
             />
             {error
-                && <p className={classNames(cls.error, {}, [className])}>Input field can not be empty</p>}
+                && (
+                    <p className={classNames(cls.error, {}, [className])}>
+                        Input field can not be empty
+                    </p>
+                )}
         </div>
     );
 };

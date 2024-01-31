@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import ProductIcon from 'shared/assets/icons/about-20-20.svg';
-import StoreIcon from 'shared/assets/icons/about-20-20.svg';
+import ProductIcon from 'shared/assets/icons/product-20-20.svg';
+import ShopIcon from 'shared/assets/icons/shop-20-20.svg';
 import MainIcon from 'shared/assets/icons/main-20-20.svg';
 import cls from './Sidebar.module.scss';
 
@@ -12,9 +12,7 @@ interface SidebarProps {
     className?: string;
 
 }
-// ������� ������ ������� ����� ��������
-// ���������� ��� �� �����
-// ��������  ���������� ������������� ��� � ������
+
 export const Sidebar = ({ className }: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(false);
 
@@ -67,7 +65,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
                     to={RoutePath.shop}
                     className={cls.item}
                 >
-                    <StoreIcon className={cls.icon} />
+                    <ShopIcon className={cls.icon} />
                     <span className={cls.link}>
                         Stores
                     </span>

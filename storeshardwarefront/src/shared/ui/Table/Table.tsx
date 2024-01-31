@@ -25,8 +25,8 @@ export const Table: FC<ProductProps> = (props) => {
     const TableRow = ({ item, column }: any) => (
 
         <tr>
-            {column.map((columnItem: any, key: any) => (
-                <td key={key}>
+            {column.map((columnItem: any, index: any) => (
+                <td key={columnItem.value}>
                     {' '}
                     {item[`${columnItem.value}`]}
                     {' '}
@@ -44,9 +44,9 @@ export const Table: FC<ProductProps> = (props) => {
             <thead>
                 <tr>
                     {
-                        column.map((item, key) => (
+                        column.map((item, index) => (
                             <TableHeadItem
-                                key={key}
+                                key={index}
                                 item={item}
                             />
                         ))
@@ -55,9 +55,9 @@ export const Table: FC<ProductProps> = (props) => {
             </thead>
             <tbody>
                 {
-                    data.map((item, key) => (
+                    data.map((item, index) => (
                         <TableRow
-                            key={key}
+                            key={index}
                             item={item}
                             column={column}
 
