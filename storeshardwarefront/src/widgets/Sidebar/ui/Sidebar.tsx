@@ -12,11 +12,11 @@ interface SidebarProps {
     className?: string;
 
 }
-// Боковая панель которую можно свернуть
-// Развернуть как на ютубе
-// Содержит  компоненты переключатель тем и языков
+// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ  пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 export const Sidebar = ({ className }: SidebarProps) => {
-    const [collapsed, setCollapsed] = useState(false);    
+    const [collapsed, setCollapsed] = useState(false);
 
     const onToggle = (() => {
         setCollapsed((prev) => !prev);
@@ -72,12 +72,9 @@ export const Sidebar = ({ className }: SidebarProps) => {
                         Stores
                     </span>
                 </AppLink>
-                
 
-            </div>          
+            </div>
 
         </div>
     );
 };
-
-

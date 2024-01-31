@@ -3,9 +3,9 @@ import { ButtonHTMLAttributes, FC } from 'react';
 import cls from './Button.module.scss';
 
 export enum ButtonTheme {
-    CLEAR = 'clear',    
+    CLEAR = 'clear',
     OUTLINE ='outline',
-    BACKGROUND = 'background',    
+    BACKGROUND = 'background',
 }
 
 export enum ButtonSize {

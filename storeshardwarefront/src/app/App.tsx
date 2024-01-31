@@ -4,13 +4,12 @@ import { AppRouter } from 'app/providers/Router';
 import { Sidebar } from 'widgets/Sidebar/ui/Sidebar';
 import { Navbar } from 'widgets/Navbar/ui/Navbar';
 
-function App() {   
-
+function App() {
     return (
-        <div className={classNames('app', {}, [])} >   
+        <div className={classNames('app', {}, [])}>
             <Navbar />
-            <Suspense fallback="">                
-                <div className="content-page"> 
+            <Suspense fallback="">
+                <div className="content-page">
                     <Sidebar />
                     <AppRouter />
                 </div>

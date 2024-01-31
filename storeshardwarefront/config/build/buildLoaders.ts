@@ -8,7 +8,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     const svgLoader = {
         test: /\.svg$/,
         use: ['@svgr/webpack'],
-    };    
+    };
 
     // For work witch SCSS;CSS
     const cssLoader = buildCssLoader(isDev);
@@ -16,7 +16,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     const typescriptLoader = {
         test: /\.tsx?$/,
         use: 'ts-loader',
-        exclude: /node_modules/, // Исключение
+        exclude: /node_modules/, // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     };
 
     // for work  PNG;JPEG;Gif files
@@ -31,7 +31,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 
     return [
         fileLoader,
-        svgLoader,       
+        svgLoader,
         typescriptLoader,
         cssLoader,
     ];

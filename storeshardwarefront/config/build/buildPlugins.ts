@@ -15,7 +15,7 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
         // for progress build in %
         new webpack.ProgressPlugin(),
 
-        // for отдельных Css files in build
+        // for пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ Css files in build
         new MiniCssExtractPlugin({
             filename: 'css/[name].[contenthash:8].css',
             chunkFilename: 'css/[name].[contenthash:8].css', // for async
@@ -29,7 +29,7 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
     ];
 
     if (isDev) {
-        plugins.push(new webpack.HotModuleReplacementPlugin());        
+        plugins.push(new webpack.HotModuleReplacementPlugin());
     }
 
     return plugins;

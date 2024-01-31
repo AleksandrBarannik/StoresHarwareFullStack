@@ -1,65 +1,42 @@
-import React, {  useCallback, useEffect, useState } from 'react';
+import React, {
+    ChangeEvent, useCallback, useEffect, useState,
+} from 'react';
 import { Table } from 'shared/ui/Table/Table';
 import { fetchShops, fetchShopById } from 'Clients/function/ShopClient';
-import { ShopForm } from 'widgets/Forms/ui/ShopForm'
-import { Button } from '../../../shared/ui/Button/Button';
-import { Modal } from '../../../shared/ui/Modal/Modal';
-
-
+import { ShopForm } from 'widgets/Forms/ui/ShopForm';
+import { Button } from 'shared/ui/Button/Button';
+import { Modal } from 'shared/ui/Modal/Modal';
 
 export const ShopPage = () => {
     const shopID = 1;
 
     const [shopState, setShopState] = useState([]);
     const [shopStateById, setShopStateById] = useState([]);
+    const [modalData, setModalWindow] = useState(false);
 
-   
-    
     useEffect(() => {
-        fetchShops().then(res => {
-            //console.log(res.data.result);
+        fetchShops().then((res) => {
+            // console.log(res.data.result);
             setShopState(res.data.result);
         });
+    }, [setShopState]);
 
-    }, [setShopState])   
-
-    
     useEffect(() => {
-        fetchShopById(shopID).then(res => {
-            console.log(res.data.result);
+        fetchShopById(shopID).then((res) => {
+            // console.log(res.data.result);
             setShopStateById(res.data.result);
-            
         });
+    }, [setShopStateById]);
 
-    }, [setShopStateById]) 
-    
-
-
-
-    const [modalData, setModalWindow] = useState(false);
     const onToggleModal = useCallback(() => {
         setModalWindow((prev) => !prev);
     }, []);
 
-    const onEditStore = useCallback(() => {
-        setModalWindow((prev) => !prev);
-    }, []);
+    const columns = Object.keys(shopState[0] ?? {}).map((key) => ({
 
-    const onDeleteStore = useCallback(() => {
-        console.log('Button Delete StorePage Click')
-    }, []);     
-
-
-    const column = [
-        { heading: 'ShopId ', value: 'shopId' },
-        { heading: 'Name', value: 'name' },
-        { heading: 'Phone', value: 'phone' },
-        { heading: 'Adress', value: 'adress' }        
-    ]  
-
-    
-    
-
+        heading: key,
+        value: key,
+    }));
 
     return (
         <div>
@@ -74,15 +51,15 @@ export const ShopPage = () => {
             >
                 <ShopForm />
             </Modal>
-            
+
             <Table
                 data={shopState}
-                column={ column }
-                onEditClick={onToggleModal }
-                onDeleteClick= { onDeleteStore }
-            />         
-            
-                       
+
+                column={columns}
+            />
+            {console.log(shopState)}
+            {console.log(columns)}
+
         </div>
     );
 };

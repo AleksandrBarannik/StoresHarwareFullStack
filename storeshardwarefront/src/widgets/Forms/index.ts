@@ -1,3 +1,3 @@
 export {
-    ShopForm
+    ShopForm,
 } from './ui/shopForm';

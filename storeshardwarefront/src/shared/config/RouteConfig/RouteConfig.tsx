@@ -15,7 +15,7 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.MAIN]: '/',
     [AppRoutes.SHOP]: '/shop',
     [AppRoutes.PRODUCT]: '/product',
-}
+};
 
 export const routeConfig: Record<AppRoutes, RouteProps> = {
 

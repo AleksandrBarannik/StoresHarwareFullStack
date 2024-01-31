@@ -1,6 +1,6 @@
 type Mods = Record<string, boolean | string>
 
-// Helper for combine classes by condition(по условию)
+// Helper for combine classes by condition(пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ)
 // (analog library  React classNames)
 export function classNames(cls: string, mods: Mods = {}, additional: string[] = []): string {
     return [

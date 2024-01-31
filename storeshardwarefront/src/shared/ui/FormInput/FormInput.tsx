@@ -2,7 +2,6 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { ChangeEvent, FC, useContext } from 'react';
 import cls from './FormInput.module.scss';
 
-
 interface InputProps {
     type: 'text' | 'number' | 'PhoneNumber' ;
     className?: string;
@@ -13,14 +12,14 @@ interface InputProps {
     error?: boolean,
     disabled?: boolean;
     onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-    
+
 }
 export const FormInput: FC<InputProps> = (props) => {
     const {
         type,
         className,
         label,
-        value,              
+        value,
         name,
         placeholder,
         error,
@@ -28,11 +27,9 @@ export const FormInput: FC<InputProps> = (props) => {
         onChange,
     } = props;
 
-    
-
     return (
         <div className={classNames(cls.inputWrapper, {}, [className])}>
-            <label htmlFor={ label }>{ label }</label>
+            <label htmlFor={label}>{ label }</label>
             <input
                 type={type}
                 id={label}
@@ -40,10 +37,10 @@ export const FormInput: FC<InputProps> = (props) => {
                 name={name}
                 placeholder={placeholder}
                 onChange={onChange}
-                disabled={disabled}                
+                disabled={disabled}
             />
-            {error &&
-                <p className={classNames(cls.error, {}, [className])}>Input field can not be empty</p>}
+            {error
+                && <p className={classNames(cls.error, {}, [className])}>Input field can not be empty</p>}
         </div>
-    )
-}
+    );
+};

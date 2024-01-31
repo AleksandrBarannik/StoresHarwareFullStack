@@ -4,7 +4,7 @@ import { routeConfig } from 'shared/config/routeConfig/routeConfig';
 import { PageLoader } from 'widgets/PageLoader/ui/PageLoader';
 
 const AppRouter = () => (
-    // Suspense показывает загрузку до появления асинхронного компонента
+    // Suspense пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
     <Routes>
         {Object.values(routeConfig).map(({ path, element }) => (
@@ -12,7 +12,7 @@ const AppRouter = () => (
                 key={path}
                 path={(path)}
                 element={(
-                    <Suspense fallback={<PageLoader /> }>
+                    <Suspense fallback={<PageLoader />}>
                         <div className="page-wrapper">
                             {element}
                         </div>

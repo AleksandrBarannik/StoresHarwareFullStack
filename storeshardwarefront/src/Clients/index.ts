@@ -1,8 +1,9 @@
 export {
     fetchShopById,
-    fetchShops
+    fetchShops,
+    createShop,
 } from './function/ShopClient';
 
 export {
-    fetchProducts
+    fetchProducts,
 } from './function/ProductClient';

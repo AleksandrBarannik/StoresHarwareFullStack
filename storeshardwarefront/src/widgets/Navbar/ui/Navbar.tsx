@@ -9,7 +9,7 @@ interface NavbarProps {
 
 }
 // Navigation panel with links to page
-export function Navbar({ className } : NavbarProps) {   
+export function Navbar({ className } : NavbarProps) {
     const [modalData, setModalWindow] = useState(false);
 
     const onToggleModal = useCallback(() => {
@@ -32,7 +32,7 @@ export function Navbar({ className } : NavbarProps) {
             >
                 {/* eslint-disable-next-line i18next/no-literal-string */}
                 {/* eslint-disable-next-line i18next/no-literal-string */}
-                MODAL FORM TESTING 
+                MODAL FORM TESTING
             </Modal>
 
         </div>

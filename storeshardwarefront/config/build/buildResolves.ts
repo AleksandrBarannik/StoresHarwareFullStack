@@ -6,7 +6,7 @@ export function buildResolves(options: BuildOptions): ResolveOptions {
     return {
         extensions: ['.tsx', '.ts', '.js'],
 
-        // Absolute Path prefer(приоритет)
+        // Absolute Path prefer(пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ)
         preferAbsolute: true,
         modules: [options.paths.src, 'node_modules'],
 
