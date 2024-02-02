@@ -1,92 +1,80 @@
-import { ChangeEvent, FormEvent } from 'react';
-import useInput from 'app/hooks/useInput';
+import { ChangeEvent, FormEvent, useState } from 'react';
+import { createShop } from 'Clients/function/ShopClient';
 import { FormInput } from 'shared/ui/FormInput/FormInput';
-import { Button } from 'shared/ui/Button/Button';
 
-export interface inputType
-{
-    value: string;
-    setError: (value:boolean) => void;
-}
-interface FormProps {
-    className?: string;
-    onTransferToInput?: (e: ChangeEvent<HTMLInputElement>) => void;
-    onSendClick?: () => void;
-    onGetClick?: () => void;
+// FORM  fo POst  PUT Delete Methods for Table Shop
+export const ShopForm = () => {
+    const [createState, setCreatState] = useState(
+        {
+            shopId: '',
+            name: '',
+            phone: '',
+            adress: '',
+        },
+    );
 
-}
-
-export const ShopForm = (props:FormProps) => {
-    const {
-        className,
-        onTransferToInput,
-        onSendClick,
-        onGetClick,
-    } = props;
-
-    const shopInput = useInput('');
-    const nameInput = useInput('');
-    const phoneInput = useInput('');
-    const adressInput = useInput('');
-
-    const handleSubmit = (e: FormEvent) => {
-        e.preventDefault();
-        validateInput(shopInput);
-        validateInput(nameInput);
-        validateInput(phoneInput);
-        validateInput(adressInput);
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        // eslint-disable-next-line prefer-destructuring
+        const value = e.target.value;
+        setCreatState({
+            ...createState,
+            [e.target.name]: value,
+        });
     };
 
-    const validateInput = (input: inputType) => {
-        if (!input.value.trim()) {
-            input.setError(true);
-        } else {
-            input.setError(false);
-        }
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const shopData = {
+            shopId: createState.shopId,
+            name: createState.name,
+            phone: createState.phone,
+            adress: createState.adress,
+        };
+        createShop(shopData);
     };
 
     return (
-        <div>
+        <form onSubmit={handleSubmit}>
 
-            <form onSubmit={handleSubmit}>
-                <FormInput
-                    type="number"
-                    label="ShopIdb"
-                    name="ShopId"
-                    placeholder="Enter new ShopId"
-                    {...shopInput}
-                />
+            <FormInput
+                type="number"
+                label="ShopId"
+                name="shopId"
+                placeholder="Enter new ShopId"
+                onChange={handleChange}
+                value={createState.shopId}
 
-                <FormInput
-                    type="text"
-                    label="ShopName"
-                    name="ShopName"
-                    placeholder="Enter new name shop"
-                    {...nameInput}
+            />
 
-                />
-                <FormInput
-                    type="PhoneNumber"
-                    label="Phone"
-                    name="Phone"
-                    placeholder="Enter new phone number"
-                    {...phoneInput}
-                />
+            <FormInput
+                type="text"
+                label="ShopName"
+                name="name"
+                placeholder="Enter new name shop"
+                onChange={handleChange}
+                value={createState.name}
 
-                <FormInput
-                    type="text"
-                    label="Adress"
-                    name="Adress"
-                    placeholder="Enter new adress for  shop"
-                    {...adressInput}
+            />
+            <FormInput
+                type="number"
+                label="Phone"
+                name="phone"
+                placeholder="Enter new phone number"
+                onChange={handleChange}
+                value={createState.phone}
 
-                />
-                <Button onClick={onSendClick}> SendForm</Button>
-                <Button onClick={onGetClick}> GetDataByID</Button>
+            />
 
-            </form>
+            <FormInput
+                type="text"
+                label="Adress"
+                name="adress"
+                placeholder="Enter new adress for  shop"
+                onChange={handleChange}
+                value={createState.adress}
 
-        </div>
-
+            />
+            <button type="submit">Send</button>
+        </form>
     );
 };

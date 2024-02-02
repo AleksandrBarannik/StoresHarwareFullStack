@@ -9,7 +9,6 @@ namespace StoresHardware_HardWareAPI.Models
         public int ShopId { get; set; }
         public string Name { get; set; }
 
-        [DataType(DataType.PhoneNumber)]
         public string Phone { get; set; }
 
         public string Adress { get; set; }

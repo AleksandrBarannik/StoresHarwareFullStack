@@ -6,8 +6,7 @@ namespace StoresHardware_HardWareAPI.Models.Dto
     public class ShopDto
     {
         public int ShopId { get; set; }        
-        public string Name { get; set; }
-        [DataType(DataType.PhoneNumber)]
+        public string Name { get; set; }       
         public string Phone { get; set; }
         public string Adress { get; set; }
         

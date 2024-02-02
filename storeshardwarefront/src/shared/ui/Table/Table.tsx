@@ -1,9 +1,10 @@
+/* eslint-disable react/no-unstable-nested-components */
 import React, { FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui/Button/Button';
 import cls from './Table.module.scss';
 
-export interface ProductProps {
+export interface TableProps {
     className?: string;
     data?: any[];
     column?: any[];
@@ -12,7 +13,7 @@ export interface ProductProps {
 
 }
 
-export const Table: FC<ProductProps> = (props) => {
+export const Table: FC<TableProps> = (props) => {
     const {
         className,
         data,
