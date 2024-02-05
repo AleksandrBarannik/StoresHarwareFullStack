@@ -26,7 +26,7 @@ export const Table: FC<TableProps> = (props) => {
     const TableRow = ({ item, column }: any) => (
 
         <tr>
-            {column.map((columnItem: any, index: any) => (
+            {column.map((columnItem: any) => (
                 <td key={columnItem.value}>
                     {' '}
                     {item[`${columnItem.value}`]}
@@ -50,6 +50,7 @@ export const Table: FC<TableProps> = (props) => {
                                 key={index}
                                 item={item}
                             />
+
                         ))
                     }
                 </tr>

@@ -1,48 +1,37 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
-import { createShop } from 'Clients/function/ShopClient';
 import { FormInput } from 'shared/ui/FormInput/FormInput';
 
+interface FormProps {
+    onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+    onSubmit: (e: FormEvent<HTMLFormElement>) => void;
+    state: { // name columns in DB
+        // вопрос как сделать количество динамическим в зависимости от количества колонок в БД
+        value1: string;
+        value2: string;
+        value3: string;
+        value4: string;
+    }
+}
+
 // FORM  fo POst  PUT Delete Methods for Table Shop
-export const ShopForm = () => {
-    const [createState, setCreatState] = useState(
+export const ShopForm = (props : FormProps) => {
+    const
         {
-            shopId: '',
-            name: '',
-            phone: '',
-            adress: '',
-        },
-    );
-
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        // eslint-disable-next-line prefer-destructuring
-        const value = e.target.value;
-        setCreatState({
-            ...createState,
-            [e.target.name]: value,
-        });
-    };
-
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        const shopData = {
-            shopId: createState.shopId,
-            name: createState.name,
-            phone: createState.phone,
-            adress: createState.adress,
-        };
-        createShop(shopData);
-    };
+            onChange,
+            onSubmit,
+            state,
+        } = props;
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={onSubmit}>
 
             <FormInput
                 type="number"
                 label="ShopId"
                 name="shopId"
                 placeholder="Enter new ShopId"
-                onChange={handleChange}
-                value={createState.shopId}
+                onChange={onChange}
+                value={state.value1}
 
             />
 
@@ -51,8 +40,8 @@ export const ShopForm = () => {
                 label="ShopName"
                 name="name"
                 placeholder="Enter new name shop"
-                onChange={handleChange}
-                value={createState.name}
+                onChange={onChange}
+                value={state.value2}
 
             />
             <FormInput
@@ -60,8 +49,8 @@ export const ShopForm = () => {
                 label="Phone"
                 name="phone"
                 placeholder="Enter new phone number"
-                onChange={handleChange}
-                value={createState.phone}
+                onChange={onChange}
+                value={state.value3}
 
             />
 
@@ -70,8 +59,8 @@ export const ShopForm = () => {
                 label="Adress"
                 name="adress"
                 placeholder="Enter new adress for  shop"
-                onChange={handleChange}
-                value={createState.adress}
+                onChange={onChange}
+                value={state.value4}
 
             />
             <button type="submit">Send</button>
