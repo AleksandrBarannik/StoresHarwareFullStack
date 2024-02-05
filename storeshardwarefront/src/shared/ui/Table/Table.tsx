@@ -47,7 +47,7 @@ export const Table: FC<TableProps> = (props) => {
                     {
                         column.map((item, index) => (
                             <TableHeadItem
-                                key={index}
+                                key={item}
                                 item={item}
                             />
 

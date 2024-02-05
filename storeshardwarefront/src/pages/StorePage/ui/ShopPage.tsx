@@ -36,6 +36,7 @@ export const ShopPage = () => {
     }, [setShopStateById]);
 
     const deleteClick = useCallback(() => {
+        // как достать индекс из таблицы?
         deleteShop(4)
             .then((response) => {
                 console.log('Resource deleted successfully:', response.data);
